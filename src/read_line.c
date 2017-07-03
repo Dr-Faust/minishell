@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 17:56:13 by opodolia          #+#    #+#             */
-/*   Updated: 2017/06/22 16:03:32 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:17:19 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	expand_buffer(int position, int *bufsize, char **buffer)
 	if (position >= *bufsize)
 	{
 		*bufsize += READ_LINE_BUFSIZE;
-		free(buffer);
+		ft_memdel((void **)&buffer);
 		if (!(*buffer = (char *)malloc(sizeof(char) * (*bufsize))))
 			exit(EXIT_FAILURE);
 	}

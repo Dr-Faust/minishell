@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 16:42:41 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/01 19:52:48 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 19:04:16 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	check_access(char *arg)
 {
 	if (access(arg, F_OK) == -1)
 		return (error_return(cd_no_s_f_or_dir, arg));
-	else 
+	else
 		return (error_return(cd_perm_denied, arg));
 	return (1);
 }
@@ -73,13 +73,13 @@ static int	treat_cd(char **args, t_env **env_info, int *ret)
 int			ft_cd(char **args, t_env **env_info)
 {
 	int		ret;
-	char	buf[256];
-	char	path[256];
+	char	buf[PATH_LEN];
+	char	path[PATH_LEN];
 
 	ret = 0;
-	ft_bzero(buf, 256);
-	ft_bzero(path, 256);
-	getcwd(buf, 256);
+	ft_bzero(buf, PATH_LEN);
+	ft_bzero(path, PATH_LEN);
+	getcwd(buf, PATH_LEN);
 	if (treat_cd(args, env_info, &ret))
 		return (1);
 	if (ret == -1)
@@ -89,7 +89,7 @@ int			ft_cd(char **args, t_env **env_info)
 		if (args[1] && !ft_strcmp(args[1], "-") &&
 				get_env_var("OLDPWD", *env_info))
 			ft_printf("%s\n", get_env_var("OLDPWD", *env_info));
-		getcwd(path, 256);
+		getcwd(path, PATH_LEN);
 		ft_setenv(env_info, "PWD", path, args);
 		ft_setenv(env_info, "OLDPWD", buf, args);
 	}

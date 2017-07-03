@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 15:09:50 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/01 20:04:48 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:29:14 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 # include <sys/stat.h>
 # include <stdbool.h>
 
-# define READ_LINE_BUFSIZE 1024
+# define READ_LINE_BUFSIZE	1024
+# define PATH_LEN			1024
 
 typedef struct		s_env
 {
@@ -52,18 +53,25 @@ typedef	enum
 	cd_perm_denied,
 	min_no_s_f_or_dir,
 	min_perm_denied,
+	set_too_few_arg,
+	set_too_much_arg,
+	set_not_an_id,
+	unset_too_few_arg,
+	unset_no_such_var,
 }	t_err_return;
 
 t_env				*get_env_info(char **arr);
 void				write_prompt(void);
 char				*read_line(void);
-char				***split_line(char *line);
-char				**split_commands(char *line);
+int					split_line(char *line, t_env **env_info, int status,
+					char ***args);
+char				**split_command(char *line);
 void				error_exit(int index);
 int					error_return(int index, char *arg);
 char				*parse_dollar(char *line, int i, t_env *env_info);
 char				*get_env_var(char *var, t_env *env_info);
 int					count_args(char *str);
+int					count_commands(char *str);
 int					execute(char **args, t_env **env_info);
 char				**env_to_arr(t_env *env_info);
 char				*verif_access(char *command, t_env *env_info);

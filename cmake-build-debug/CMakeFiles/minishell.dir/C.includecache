@@ -56,6 +56,10 @@ minishell.h
 minishell.h
 /nfs/2016/o/opodolia/projects/GitHub/minishell/src/minishell.h
 
+/nfs/2016/o/opodolia/projects/GitHub/minishell/src/errors.c
+minishell.h
+/nfs/2016/o/opodolia/projects/GitHub/minishell/src/minishell.h
+
 /nfs/2016/o/opodolia/projects/GitHub/minishell/src/execute.c
 minishell.h
 /nfs/2016/o/opodolia/projects/GitHub/minishell/src/minishell.h
@@ -93,6 +97,10 @@ minishell.h
 /nfs/2016/o/opodolia/projects/GitHub/minishell/src/minishell.h
 
 /nfs/2016/o/opodolia/projects/GitHub/minishell/src/read_line.c
+minishell.h
+/nfs/2016/o/opodolia/projects/GitHub/minishell/src/minishell.h
+
+/nfs/2016/o/opodolia/projects/GitHub/minishell/src/split_commands.c
 minishell.h
 /nfs/2016/o/opodolia/projects/GitHub/minishell/src/minishell.h
 

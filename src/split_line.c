@@ -6,13 +6,24 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 20:33:41 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/01 18:37:26 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:29:12 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int		count_commands(char *str)
+static void	clean_up(char **args, char *cmd)
+{
+	int		i;
+
+	i = -1;
+	while (args[++i])
+		ft_memdel((void **)&(args[i]));
+	ft_memdel((void **)&(args));
+	ft_memdel((void **)&cmd);
+}
+
+int			count_commands(char *str)
 {
 	int		i;
 	int		count;
@@ -31,31 +42,31 @@ static int		count_commands(char *str)
 	return (count);
 }
 
-char			***split_line(char *line)
+int			split_line(char *line, t_env **env_info, int status, char ***args)
 {
-	char			***args;
+	char			*cmd;
 	int				i;
 	int				numb;
 	unsigned int	start;
-	char			**tmp;
+	int				j;
 
 	i = 0;
-	numb = 0;
-	if (!(args = ft_memalloc(sizeof(char **) * (count_commands(line) + 1))) ||
-		!(tmp = ft_memalloc(sizeof(char *) * (count_commands(line) + 1))))
-		error_exit(mem_alloc_err);
-	while (numb < count_commands(line))
+	numb = -1;
+	while (++numb < count_commands(line))
 	{
 		while (line[i] && line[i] == ';')
 			i++;
 		start = (unsigned int)i;
 		while (line[i] && line[i] != ';')
 			i++;
-		tmp[numb] = ft_strsub(line, start, (size_t)(i - start));
-		args[numb] = split_commands(tmp[numb]);
-		ft_memdel((void **)&(tmp[numb]));
-		numb++;
+		cmd = ft_strsub(line, start, (size_t)(i - start));
+		j = -1;
+		while (cmd[++j])
+			if (cmd[j] == '$' && cmd[j + 1] && ft_isalnum(cmd[j + 1]))
+				cmd = parse_dollar(cmd, j, *env_info);
+		args[numb] = split_command(cmd);
+		status = execute(args[numb], env_info);
+		clean_up(args[numb], cmd);
 	}
-	ft_memdel((void **)&tmp);
-	return (args);
+	return (status);
 }

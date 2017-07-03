@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 16:50:42 by opodolia          #+#    #+#             */
-/*   Updated: 2017/06/14 16:48:12 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:14:40 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	write_prompt(void)
 	gethostname(buf, 256);
 	tmp = ft_strndup(buf, '.');
 	ft_printf("%s%s%s%s%s", B_GREEN, tmp, B_CYAN, ":>> ", DEF);
-	free(buf);
-	free(tmp);
+	ft_memdel((void **)&buf);
+	ft_memdel((void **)&tmp);
 }

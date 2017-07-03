@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/16 16:45:01 by opodolia          #+#    #+#             */
-/*   Updated: 2017/06/21 17:35:55 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 19:01:17 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static void	create_lst(t_env **lst, char *arr)
 		return ;
 	(*lst)->name = ft_strndup(arr, '=');
 	(*lst)->content = ft_strdup(ft_strchr(arr, '=') + 1);
+	if (!ft_strcmp((*lst)->name, "SHLVL"))
+		(*lst)->content[0] += 1;
 	(*lst)->next = 0;
 }
 

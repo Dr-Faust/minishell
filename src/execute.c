@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/10 14:55:14 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/01 20:04:43 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:09:54 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static int	launch(char **args, t_env *env_info, char *path)
 			waitpid(pid, &status, WUNTRACED);
 		i = -1;
 		while (env[++i])
-			free(env[i]);
-		free(env);
-		free(path);
+			ft_memdel((void **)&(env[i]));
+		ft_memdel((void **)&env);
+		ft_memdel((void **)&path);
 	}
 	return (1);
 }
@@ -45,7 +45,7 @@ static int	check_path(char *path, char *arg)
 
 	if ((lstat(path, &buf) != -1 && !S_ISREG(buf.st_mode))
 			|| access(path, X_OK) != 0)
-		return(error_return(min_perm_denied, arg));
+		return (error_return(min_perm_denied, arg));
 	return (0);
 }
 
@@ -83,7 +83,7 @@ static int	treat_path(char **args, t_env *env_info)
 	{
 		if (check_path(path, args[0]))
 		{
-			free(path);
+			ft_memdel((void **)&path);
 			return (1);
 		}
 		launch(args, env_info, path);

@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/21 20:33:09 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/01 17:08:55 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:20:45 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char		*parse_dollar(char *line, int i, t_env *env_info)
 	if (ft_isenv(env_info, var))
 		new_line = ft_strjoin_free_first(new_line, get_env_var(var, env_info));
 	new_line = ft_strjoin_free_first(new_line, &(line[tmp]));
-	free(var);
-	free(line);
+	ft_memdel((void **)&var);
+	ft_memdel((void **)&line);
 	return (new_line);
 }

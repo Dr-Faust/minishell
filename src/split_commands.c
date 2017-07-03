@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/01 15:40:58 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/01 18:25:00 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:29:09 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,19 @@ static void	split_quotes(char *line, char **args, unsigned int *i, t_var *x)
 	}
 }
 
-char		**split_commands(char *line)
+char		**split_command(char *line)
 {
 	char			**args;
+	int				args_numb;
 	unsigned int	i;
 	t_var			x;
 
 	i = 0;
 	x.numb = 0;
-	if (!(args = ft_memalloc(sizeof(char *) * (count_args(line) + 1))))
+	args_numb = count_args(line);
+	if (!(args = ft_memalloc(sizeof(char *) * (args_numb + 1))))
 		error_exit(mem_alloc_err);
-	while (x.numb < count_args(line))
+	while (x.numb < args_numb)
 	{
 		x.flag = 0;
 		while (line[i] && ft_isspace(line[i]))

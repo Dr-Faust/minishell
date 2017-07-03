@@ -16,6 +16,11 @@ CMakeFiles/minishell.dir/src/env_to_arr.c.o: ../libft_printf/includes/ft_printf.
 CMakeFiles/minishell.dir/src/env_to_arr.c.o: ../libft_printf/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/env_to_arr.c.o: ../src/env_to_arr.c
 
+CMakeFiles/minishell.dir/src/errors.c.o: ../includes/minishell.h
+CMakeFiles/minishell.dir/src/errors.c.o: ../libft_printf/includes/ft_printf.h
+CMakeFiles/minishell.dir/src/errors.c.o: ../libft_printf/libft/includes/libft.h
+CMakeFiles/minishell.dir/src/errors.c.o: ../src/errors.c
+
 CMakeFiles/minishell.dir/src/execute.c.o: ../includes/minishell.h
 CMakeFiles/minishell.dir/src/execute.c.o: ../libft_printf/includes/ft_printf.h
 CMakeFiles/minishell.dir/src/execute.c.o: ../libft_printf/libft/includes/libft.h
@@ -65,6 +70,11 @@ CMakeFiles/minishell.dir/src/read_line.c.o: ../includes/minishell.h
 CMakeFiles/minishell.dir/src/read_line.c.o: ../libft_printf/includes/ft_printf.h
 CMakeFiles/minishell.dir/src/read_line.c.o: ../libft_printf/libft/includes/libft.h
 CMakeFiles/minishell.dir/src/read_line.c.o: ../src/read_line.c
+
+CMakeFiles/minishell.dir/src/split_commands.c.o: ../includes/minishell.h
+CMakeFiles/minishell.dir/src/split_commands.c.o: ../libft_printf/includes/ft_printf.h
+CMakeFiles/minishell.dir/src/split_commands.c.o: ../libft_printf/libft/includes/libft.h
+CMakeFiles/minishell.dir/src/split_commands.c.o: ../src/split_commands.c
 
 CMakeFiles/minishell.dir/src/split_line.c.o: ../includes/minishell.h
 CMakeFiles/minishell.dir/src/split_line.c.o: ../libft_printf/includes/ft_printf.h

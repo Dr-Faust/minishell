@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/18 20:05:07 by opodolia          #+#    #+#             */
-/*   Updated: 2017/06/19 21:38:17 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:13:07 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,14 @@ static int	check_args(char *var, char *value, char **args)
 
 	i = -1;
 	if ((var == 0 || value == 0))
-	{
-		ft_printf("setenv: too few arguments: setenv var_name value\n");
-		return (1);
-	}
+		return (error_return(set_too_few_arg, 0));
 	else if (args[1] && args[2] && args[3])
-	{
-		ft_printf("setenv: too much arguments: setenv var_name value\n");
-		return (1);
-	}
+		return (error_return(set_too_much_arg, 0));
 	else
 	{
 		while (var[++i])
 			if (ft_isdigit(var[i]))
-			{
-				ft_printf("setenv: not an identifier: %s\n", var);
-				return (1);
-			}
+				return (error_return(set_not_an_id, var));
 	}
 	return (0);
 }
@@ -84,7 +75,7 @@ int			ft_setenv(t_env **env_info, char *var, char *value, char **args)
 	}
 	if (tmp && !ft_strcmp(tmp->name, var))
 	{
-		free(tmp->content);
+		ft_memdel((void **)&(tmp->content));
 		tmp->content = ft_strdup(value);
 		return (1);
 	}

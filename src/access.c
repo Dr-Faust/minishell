@@ -6,26 +6,23 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/17 17:13:47 by opodolia          #+#    #+#             */
-/*   Updated: 2017/06/22 21:09:17 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:03:41 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	free_arr(char **arr)
+static void	clean_up(char **arr)
 {
 	int		i;
 
-	i = 0;
+	i = -1;
 	if (!arr || !arr[0])
 		return ;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr[i]);
-	free(arr);
+	while (arr[++i])
+		ft_memdel((void **)&(arr[i]));
+	ft_memdel((void **)&(arr[i]));
+	ft_memdel((void **)&arr);
 }
 
 static void	err_no_path(int ret, char *arg)
@@ -64,11 +61,11 @@ char		*verif_access(char *command, t_env *env_info)
 		if (access(path, F_OK) == 0)
 			if ((ret = access(path, X_OK)) == 0)
 				break ;
-		free(path);
+		ft_memdel((void **)&path);
 		path = 0;
 	}
 	if (!path)
 		err_no_path(ret, command);
-	free_arr(arr);
+	clean_up(arr);
 	return (path);
 }

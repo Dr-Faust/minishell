@@ -7,7 +7,9 @@ set(SOURCE_FILES
         src/main.c
         src/read_line.c
         src/split_line.c
+        src/split_commands.c
         src/execute.c
+        src/errors.c
         src/access.c
         src/env_info.c
         src/ft_cd.c

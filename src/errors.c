@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/01 18:19:55 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/01 20:04:46 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:19:17 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,19 @@ void	error_exit(int index)
 
 int		error_return(int index, char *arg)
 {
-	char	*error[6];
+	char	*error[11];
 
-	error[0] = "cd: HOME not set\n";
-	error[1] = "cd: OLDPWD not set\n";
+	error[0] = "cd: HOME doesn't set\n";
+	error[1] = "cd: OLDPWD doesn't set\n";
 	error[2] = "cd: no such file or directory: ";
 	error[3] = "cd: permission denied: ";
 	error[4] = "minishell: no such file or directory: ";
 	error[5] = "minishell: permission denied: ";
+	error[6] = "setenv: too few arguments: setenv var_name value\n";
+	error[7] = "setenv: too much arguments: setenv var_name value\n";
+	error[8] = "setenv: not an identifier: ";
+	error[9] = "unsetenv: too few arguments: unsetenv var_name\n";
+	error[10] = "unsetenv: there is no such variable: ";
 	ft_printf("%s", error[index]);
 	if (arg)
 		ft_printf("%s\n", arg);

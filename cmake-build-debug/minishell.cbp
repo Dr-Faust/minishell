@@ -97,6 +97,9 @@
 		<Unit filename="/nfs/2016/o/opodolia/projects/GitHub/minishell/src/env_to_arr.c">
 			<Option target="minishell"/>
 		</Unit>
+		<Unit filename="/nfs/2016/o/opodolia/projects/GitHub/minishell/src/errors.c">
+			<Option target="minishell"/>
+		</Unit>
 		<Unit filename="/nfs/2016/o/opodolia/projects/GitHub/minishell/src/execute.c">
 			<Option target="minishell"/>
 		</Unit>
@@ -125,6 +128,9 @@
 			<Option target="minishell"/>
 		</Unit>
 		<Unit filename="/nfs/2016/o/opodolia/projects/GitHub/minishell/src/read_line.c">
+			<Option target="minishell"/>
+		</Unit>
+		<Unit filename="/nfs/2016/o/opodolia/projects/GitHub/minishell/src/split_commands.c">
 			<Option target="minishell"/>
 		</Unit>
 		<Unit filename="/nfs/2016/o/opodolia/projects/GitHub/minishell/src/split_line.c">

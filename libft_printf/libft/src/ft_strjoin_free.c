@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/08 20:04:00 by opodolia          #+#    #+#             */
-/*   Updated: 2017/06/19 18:57:07 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/03 20:21:30 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	char	*str;
 	
 	str = ft_strjoin(s1, s2);
-	free(s1);
-	free(s2);
+	ft_memdel((void **)&s1);
+	ft_memdel((void **)&s2);
 	return (str);
 }

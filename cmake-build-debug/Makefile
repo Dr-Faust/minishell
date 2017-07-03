@@ -204,6 +204,33 @@ src/env_to_arr.c.s:
 	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/env_to_arr.c.s
 .PHONY : src/env_to_arr.c.s
 
+src/errors.o: src/errors.c.o
+
+.PHONY : src/errors.o
+
+# target to build an object file
+src/errors.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/errors.c.o
+.PHONY : src/errors.c.o
+
+src/errors.i: src/errors.c.i
+
+.PHONY : src/errors.i
+
+# target to preprocess a source file
+src/errors.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/errors.c.i
+.PHONY : src/errors.c.i
+
+src/errors.s: src/errors.c.s
+
+.PHONY : src/errors.s
+
+# target to generate assembly for a file
+src/errors.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/errors.c.s
+.PHONY : src/errors.c.s
+
 src/execute.o: src/execute.c.o
 
 .PHONY : src/execute.o
@@ -474,6 +501,33 @@ src/read_line.c.s:
 	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/read_line.c.s
 .PHONY : src/read_line.c.s
 
+src/split_commands.o: src/split_commands.c.o
+
+.PHONY : src/split_commands.o
+
+# target to build an object file
+src/split_commands.c.o:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/split_commands.c.o
+.PHONY : src/split_commands.c.o
+
+src/split_commands.i: src/split_commands.c.i
+
+.PHONY : src/split_commands.i
+
+# target to preprocess a source file
+src/split_commands.c.i:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/split_commands.c.i
+.PHONY : src/split_commands.c.i
+
+src/split_commands.s: src/split_commands.c.s
+
+.PHONY : src/split_commands.s
+
+# target to generate assembly for a file
+src/split_commands.c.s:
+	$(MAKE) -f CMakeFiles/minishell.dir/build.make CMakeFiles/minishell.dir/src/split_commands.c.s
+.PHONY : src/split_commands.c.s
+
 src/split_line.o: src/split_line.c.o
 
 .PHONY : src/split_line.o
@@ -519,6 +573,9 @@ help:
 	@echo "... src/env_to_arr.o"
 	@echo "... src/env_to_arr.i"
 	@echo "... src/env_to_arr.s"
+	@echo "... src/errors.o"
+	@echo "... src/errors.i"
+	@echo "... src/errors.s"
 	@echo "... src/execute.o"
 	@echo "... src/execute.i"
 	@echo "... src/execute.s"
@@ -549,6 +606,9 @@ help:
 	@echo "... src/read_line.o"
 	@echo "... src/read_line.i"
 	@echo "... src/read_line.s"
+	@echo "... src/split_commands.o"
+	@echo "... src/split_commands.i"
+	@echo "... src/split_commands.s"
 	@echo "... src/split_line.o"
 	@echo "... src/split_line.i"
 	@echo "... src/split_line.s"
