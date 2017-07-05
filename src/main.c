@@ -6,13 +6,13 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 15:10:03 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/03 20:18:45 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/05 15:07:10 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static void	init_term(t_env **env_info)
+static void	minishell(t_env **env_info)
 {
 	char	*line;
 	int		status;
@@ -39,6 +39,6 @@ int			main(void)
 	t_env		*env_info;
 
 	env_info = get_env_info(environ);
-	init_term(&env_info);
+	minishell(&env_info);
 	return (EXIT_SUCCESS);
 }

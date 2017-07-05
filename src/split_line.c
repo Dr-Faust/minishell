@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 20:33:41 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/03 20:29:12 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/05 17:57:07 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ static void	clean_up(char **args, char *cmd)
 	ft_memdel((void **)&cmd);
 }
 
+static void	check_quote(char *str, int *i)
+{
+	if ((str[*i] == 34 || str[*i] == 39) &&
+			valid_quote(str, *i + 1, str[*i]) != -1)
+		*i = valid_quote(str, *i + 1, str[*i]);
+	str[*i] ? (*i)++ : 0;
+}
+
 int			count_commands(char *str)
 {
 	int		i;
@@ -37,7 +45,7 @@ int			count_commands(char *str)
 		if (str[i])
 			count++;
 		while (str[i] && str[i] != ';')
-			i++;
+			check_quote(str, &i);
 	}
 	return (count);
 }
@@ -58,7 +66,7 @@ int			split_line(char *line, t_env **env_info, int status, char ***args)
 			i++;
 		start = (unsigned int)i;
 		while (line[i] && line[i] != ';')
-			i++;
+			check_quote(line, &i);
 		cmd = ft_strsub(line, start, (size_t)(i - start));
 		j = -1;
 		while (cmd[++j])

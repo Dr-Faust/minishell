@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 15:09:50 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/03 20:29:14 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/05 15:59:48 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <sys/ioctl.h>
 # include <termios.h>
+# include <term.h>
 # include <pwd.h>
 # include <sys/stat.h>
 # include <stdbool.h>
@@ -61,6 +62,8 @@ typedef	enum
 }	t_err_return;
 
 t_env				*get_env_info(char **arr);
+void				manage_signal(void);
+int					check_prompt(int data);
 void				write_prompt(void);
 char				*read_line(void);
 int					split_line(char *line, t_env **env_info, int status,
@@ -72,6 +75,7 @@ char				*parse_dollar(char *line, int i, t_env *env_info);
 char				*get_env_var(char *var, t_env *env_info);
 int					count_args(char *str);
 int					count_commands(char *str);
+int					valid_quote(char *s, unsigned int i, char quote);
 int					execute(char **args, t_env **env_info);
 char				**env_to_arr(t_env *env_info);
 char				*verif_access(char *command, t_env *env_info);

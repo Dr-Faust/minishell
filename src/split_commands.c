@@ -6,13 +6,13 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/01 15:40:58 by opodolia          #+#    #+#             */
-/*   Updated: 2017/07/03 20:29:09 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/05 17:57:34 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static int	valid_quote(char *s, unsigned int i, char quote)
+int			valid_quote(char *s, unsigned int i, char quote)
 {
 	while (s[i])
 	{
