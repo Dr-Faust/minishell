@@ -6,7 +6,7 @@
 /*   By: opodolia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 19:20:46 by opodolia          #+#    #+#             */
-/*   Updated: 2017/06/09 19:36:48 by opodolia         ###   ########.fr       */
+/*   Updated: 2017/07/06 15:54:16 by opodolia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 unsigned char	ft_getchar(void)
 {
 	char c;
+
 	return ((read(0, &c, 1) == 1) ? (unsigned char)c : EOF);
 }
