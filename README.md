@@ -33,4 +33,4 @@ Authorized functions are restricted to these for the core functions:
 |:--|:--
 |Chain commands with ;|Chained as [cd ; ls ; cd / ; ls -l]
 |Execution rights in path|Check if the file is a binary and if the user can access it
-|Tilde support|Done|Solve a path input in the command with tilde or dots support
+|Tilde support|Solve a path input in the command with tilde or dots support
