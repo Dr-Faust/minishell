@@ -17,15 +17,15 @@ Authorized functions are restricted to these for the core functions:
 
 <p align="center">CORE FUNCTIONS STATUS</p>
 
-|Functions|Implemented|Arguments|Comments
-|:-:|:-:|:-:|:--
-|exit|Done|[exit]|Exit minishell
-|cd|Done|[cd]<br>[cd -]<br>[cd folder]<br>[cd .././folder]<br>[cd ~/folder]|Return to the home folder<br>Go to previous folder<br>Go to folder from current<br>Complex dots solved<br>Retrieve home path
-|pwd|Done|[pwd]|Give the current directory path
-|echo|Done[echo foo]<br>[echo "foo"]<br>[echo $var]|Echo standard<br>Echo foo as it's writed<br>Echo the var from env
-|env|Done|[env]|Shows environment info
-|setenv|Done|[setenv foo bar]|Add the var to the env
-|unsetenv|Done|[unsetenv foo]|Remove the var from env
+|Functions|Arguments|Comments
+|:-:|:-:|:--
+|exit|[exit]|Exit minishell
+|cd|[cd]<br>[cd -]<br>[cd folder]<br>[cd .././folder]<br>[cd ~/folder]|Return to the home folder<br>Go to previous folder<br>Go to folder from current<br>Complex dots solved<br>Retrieve home path
+|pwd|[pwd]|Give the current directory path
+|echo|[echo foo]<br>[echo "foo"]<br>[echo $var]|Echo standard<br>Echo foo as it's writed<br>Echo the var from env
+|env|[env]|Shows environment info
+|setenv|[setenv foo bar]|Add the var to the env
+|unsetenv|[unsetenv foo]|Remove the var from env
 
 <p align="center">EXTRA FEATURE</p>
 
