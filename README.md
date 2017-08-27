@@ -31,6 +31,6 @@ Authorized functions are restricted to these for the core functions:
 
 |Functions|Comments
 |:--|:--
-|Chain commands with ;|Chained as [cd ; ls ; cd / ; ls -l]
+|The ";" command line separator|Example: [cd ; ls ; cd / ; ls -l]
 |Execution rights in path|Check if the file is a binary and if the user can access it
 |Tilde support|Solve a path input in the command with tilde or dots support
