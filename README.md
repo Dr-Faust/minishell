@@ -17,7 +17,7 @@ Authorized functions are restricted to these for the core functions:
 
 <p align="center">CORE FUNCTIONS STATUS</p>
 
-|Functions|Arguments|Comments
+|Builtins|Arguments|Comments
 |:-:|:-:|:--
 |exit|[exit]|Exit minishell
 |cd|[cd]<br>[cd -]<br>[cd folder]<br>[cd .././folder]<br>[cd ~/folder]|Return to the home folder<br>Go to previous folder<br>Go to folder from current<br>Complex dots solved<br>Retrieve home path
@@ -31,6 +31,6 @@ Authorized functions are restricted to these for the core functions:
 
 |Functions|Comments
 |:--|:--
-|The ";" command line separator|Example: [cd ; ls ; cd / ; ls -l]
+|The ";" command line separator|Example: [cd ; ls ; cd / ; pwd ; ls -l]
 |Execution rights in path|Check if the file is a binary and if the user can access it
 |Tilde support|Solve a path input in the command with tilde or dots support
